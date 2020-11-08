@@ -84,6 +84,7 @@ body {
 .desk.unavailable {
     background-color: darkgrey;
     background-image: url("img/barrier_64bit.png");
+    background-size: 50px 50px;
 }
 
 #credits {
