@@ -80,3 +80,7 @@ body {
     background-color: darkgrey;
     background-image: url("img/barrier_32bit.png");
 }
+
+#credits {
+    clear: left;
+}
