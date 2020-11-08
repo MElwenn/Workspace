@@ -23,6 +23,9 @@ body {
     margin: 1px;
 
     background-color: snow;
+    background-size: 70px 70px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .desk.vertical {
@@ -43,14 +46,37 @@ body {
     height: 98px;
 }
 
-.desk.reserved {
+.desk.reserved-by-snoop {
     border-color: blue;
+    background-image: url("people/snoop.png");
+}
+
+.desk.reserved-by-bruce {
+    border-color: blue;
+    background-image: url("people/bruce.png");
+}
+
+.desk.reserved-by-kim {
+    border-color: blue;
+    background-image: url("people/kim.png");
+}
+
+.desk.reserved-by-tintin {
+    border-color: blue;
+    background-image: url("people/tintin.png");
+}
+
+.desk.reserved-by-struppi {
+    border-color: blue;
+    background-image: url("people/struppi.png");
 }
 
 .desk.reserved-by-me {
     border-color: green;
+    background-image: url("people/angie.png");
 }
 
 .desk.unavailable {
     background-color: darkgrey;
+    background-image: url("img/barrier_32bit.png");
 }
