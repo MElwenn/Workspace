@@ -46,6 +46,11 @@ body {
     height: 98px;
 }
 
+.desk.free {
+    background-image: url("img/chair.png");
+    background-size: 50px 50px;
+}
+
 .desk.reserved-by-snoop {
     border-color: blue;
     background-image: url("people/snoop.png");
