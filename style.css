@@ -58,6 +58,10 @@ body {
     background-position: center;
 }
 
+.desk:hover {
+    cursor: not-allowed;
+}
+
 .desk.vertical {
     width: 98px;
     height: 198px;
@@ -79,6 +83,12 @@ body {
 .desk.free {
     background-image: url("img/chair.png");
     background-size: 50px 50px;
+}
+
+.desk.free:hover {
+    cursor: pointer;
+    border-color: green;
+    opacity: 0.5;
 }
 
 .desk.reserved-by-snoop {
@@ -109,6 +119,10 @@ body {
 .desk.reserved-by-me {
     border-color: green;
     background-image: url("people/angie.png");
+}
+
+.desk.reserved-by-me:hover {
+    cursor: pointer;
 }
 
 .desk.unavailable {
