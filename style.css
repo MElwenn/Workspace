@@ -2,6 +2,36 @@ body {
     padding: 10px;
 }
 
+/* styles used for header-nav-bar */
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #F5F5F5;
+    overflow: hidden;
+}
+  
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #333333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #FFFFFF;
+    color: black;
+}
+  
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #6699ff;
+    color: #F5F5F5;
+}
+
+
 #office {
     background-color: lightgray;
     padding: 20px;
