@@ -8,10 +8,17 @@ body {
 /* styles used for header-nav-bar */
 #nav {
     display: table;
-    width: 1000px;
+    width: 100%;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    top: 0;
 }
 
 #nav div {
+    background-color: #f5f5f5;
     display: table-cell;
 }
 
@@ -25,10 +32,17 @@ body {
     width: 50px;
 }
 
+#datepicker {
+    height: 28px;
+}
+
+/* styles used for the office */
 #office {
     background-color: #F5F5F5;
+    border: 1px solid #222222;
     padding: 20px;
-    width: 1000px;
+    width: 96%;
+
     float: left;
 }
 
