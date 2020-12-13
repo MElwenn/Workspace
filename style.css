@@ -1,5 +1,8 @@
 body {
     padding: 10px;
+    background-color: #F5F5F5;
+    color: #333333;
+    font-family: sans-serif;
 }
 
 /* styles used for header-nav-bar */
@@ -23,7 +26,7 @@ body {
 }
 
 #office {
-    background-color: lightgray;
+    background-color: #F5F5F5;
     padding: 20px;
     width: 1000px;
     float: left;
@@ -37,12 +40,12 @@ body {
 }
 
 .desk {
-    border: 8px solid black;
+    border: 8px solid #222222;
     border-radius: 8px;
     box-sizing: border-box;
     margin: 1px;
 
-    background-color: snow;
+    background-color: #F5F5F5;
     background-size: 70px 70px;
     background-repeat: no-repeat;
     background-position: center;
@@ -77,37 +80,37 @@ body {
 
 .desk.free:hover {
     cursor: pointer;
-    border-color: green;
+    border-color: #009900;
     opacity: 0.5;
 }
 
 .desk.reserved-by-snoop {
-    border-color: blue;
+    border-color: #3333FF;
     background-image: url("people/snoop.png");
 }
 
 .desk.reserved-by-bruce {
-    border-color: blue;
+    border-color: #3333FF;
     background-image: url("people/bruce.png");
 }
 
 .desk.reserved-by-kim {
-    border-color: blue;
+    border-color: #3333FF;
     background-image: url("people/kim.png");
 }
 
 .desk.reserved-by-tintin {
-    border-color: blue;
+    border-color: #3333FF;
     background-image: url("people/tintin.png");
 }
 
 .desk.reserved-by-struppi {
-    border-color: blue;
+    border-color: #3333FF;
     background-image: url("people/struppi.png");
 }
 
 .desk.reserved-by-me {
-    border-color: green;
+    border-color: #009900;
     background-image: url("people/angie.png");
 }
 
@@ -116,7 +119,7 @@ body {
 }
 
 .desk.unavailable {
-    background-color: darkgrey;
+    background-color: #999999;
     background-image: url("img/barrier_64bit.png");
     background-size: 44px 44px;
 }
