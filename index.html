@@ -4,14 +4,19 @@
     <title>Where can I work today?</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- so funktioniert der datepicker mit altem jquery -->
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    
     <script type="text/javascript" src="js/global.js"></script>
 </head>
 
 <body>
     <div id="nav">
         <div id="top-nav">
-            <h1>Where can I work today?</h1>
+            <h1>Where can I work today? <input type="text" id="datepicker"></h1>
         </div>
         <div id="my-account">
             <img src="people/angie.png">

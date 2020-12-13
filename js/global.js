@@ -9,4 +9,6 @@ $(document).ready(() => {
             desk.addClass("free");
         }
     });
+
+    $("#datepicker").datepicker();
 });
