@@ -64,8 +64,8 @@ function renderDay(day) {
         $.each(classes, (i, className) => {
             if(className.startsWith("reserved-by") || className.startsWith("unavailable")) {
                 $(element).removeClass(className);
-                $(element).addClass("free");
             }
+            $(element).addClass("free");
         });
     });
 
