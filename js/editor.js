@@ -32,7 +32,6 @@ for(let y = 0; y <= office.height(); y += gridSize) {
 
 gridLayer.draw();
 
-
 // WALLS
 
 var wallsLayer = new Konva.Layer();
@@ -99,8 +98,9 @@ function activateDeskTool() {
     });
 }
 
+var allDesks = [];
 function createDesk() {
-    return new Konva.Rect({
+    let desk = new Konva.Rect({
         width: 2 * gridSize,
         height: gridSize,
         fill: 'grey',
@@ -108,6 +108,8 @@ function createDesk() {
         strokeWidth: 4,
         cornerRadius: 4,
     });
+    allDesks.push(desk);
+    return desk;
 }
 
 function deactivateDeskTool() {
@@ -127,14 +129,47 @@ deskToolRadio.onchange = function() {
     activateDeskTool();
 }
 
-if (wallToolRadio.checked) {
-    wallToolRadio.onchange();
+function switchToEditView() {
+    $('#nav-reserve').hide();
+    $('#nav-edit').show();
+    $('#switchToEditView').prop('disabled', true);
+    $('#switchToReserveView').prop('disabled', false);
+
+    if (wallToolRadio.checked) {
+        wallToolRadio.onchange();
+    }
+
+    if (deskToolRadio.checked) {
+        deskToolRadio.onchange();
+    }
+
+    $.each(allDesks, (desk) => {
+        desk.off('click');
+    });
 }
 
-if (deskToolRadio.checked) {
-    deskToolRadio.onchange();
+function switchToReserveView() {
+    deactivateDeskTool();
+    deactivateWallTool();
+    $('#nav-edit').hide();
+    $('#nav-reserve').show();
+    $('#switchToReserveView').prop('disabled', true);
+    $('#switchToEditView').prop('disabled', false);
+
+    $.each(allDesks, (desk) => {
+       desk.on('click', (e) => {
+            // TODO: add reserve behaviour
+        });
+    });
 }
 
+$(document).ready(() => {
+    switchToEditView();
 
-
-
+    $('#switchToEditView').click((e) => {
+        switchToEditView();
+    });
+    $('#switchToReserveView').click((e) => {
+        switchToReserveView();
+    });
+});
