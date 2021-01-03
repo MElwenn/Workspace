@@ -30,14 +30,12 @@ html, body {
     z-index: 999;
 }
 
-#global-tools {
-    font-weight: 900;
-    color: green;
-    font-size: 20px;
-}
-
 #global-tools p {
     margin: 20px;
-    border: 1px solid grey;
-    text-align: center;
+    cursor: pointer;
+}
+
+#global-tools img {
+    height: 50px;
+    width: 50px;
 }
