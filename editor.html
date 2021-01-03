@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="jquery-ui.min.css">
 
     <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <body>
@@ -38,10 +42,26 @@
             <input id="tool-desk" type="radio" name="tool" value="desk">
             <label for="tool-desk">Desk</label>
         </p>
+        <p>
+            <button><a href="#import-office-modal" rel="modal:open">Import Office</a></button>
+        </p>
+    </div>
+
+    <!-- TODO rename tools div to editor-tools and global-tools to tools -->
+    <div id="global-tools">
+        <p><a id="zoom-in">+</a></p>
+        <p><a id="zoom-out">-</a></p>
     </div>
     
     <div id="office"></div>
 
+    <div id="import-office-modal" class="modal">
+        <p>Please enter image url to import office.</p>
+        <p><input type="text" id="image-url-input" size="50"></p>
+        <p><a id="office-import-ok-button" href="#" rel="modal:close">Ok</a></p>
+    </div>
+
+    <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
     <script type="text/javascript" src="js/editor.js"></script>
     <script type="text/javascript" src="js/global.js"></script>
 </body>

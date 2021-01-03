@@ -143,6 +143,39 @@ function switchToEditView() {
         deskToolRadio.onchange();
     }
 
+$("#office-import-ok-button").click(function() {
+    let url = $("#image-url-input").val();
+    $("#office").css({"background-image" : "url(" + url + ")"});
+})
+
+var zoomOffice = function() {
+    const zoomStep = 10;
+
+    function zoomIn() {
+        let newZoom = currentZoomLevel() + zoomStep;
+        $("#office").css({"background-size" : newZoom + "%"})
+    }
+    
+    function zoomOut() {
+        let newZoom = currentZoomLevel() - zoomStep;
+        if (newZoom > 0) {
+            $("#office").css({"background-size" : newZoom + "%"})
+        }
+    }
+    
+    var currentZoomLevel = function() {
+        let style = window.getComputedStyle(document.getElementById("office"));
+        let backgroundSize = style.getPropertyValue('background-size');
+        let percentValue = parseInt(backgroundSize);
+        console.debug("current background size in percent is", percentValue);
+        return percentValue;
+    }
+
+    $("#zoom-in").click(zoomIn);
+    $("#zoom-out").click(zoomOut);
+}();
+
+
     $.each(allDesks, (desk) => {
         desk.off('click');
     });
