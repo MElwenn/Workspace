@@ -109,6 +109,7 @@ function createDesk() {
         cornerRadius: 4,
     });
     allDesks.push(desk);
+    console.log('desk added, #' + allDesks.length);
     return desk;
 }
 
@@ -143,6 +144,11 @@ function switchToEditView() {
         deskToolRadio.onchange();
     }
 
+    $.each(allDesks, (index, desk) => {
+        desk.off('click');
+    });
+}
+
 $("#office-import-ok-button").click(function() {
     let url = $("#image-url-input").val();
     $("#office").css({"background-image" : "url(" + url + ")"});
@@ -175,12 +181,6 @@ var zoomOffice = function() {
     $("#zoom-out").click(zoomOut);
 }();
 
-
-    $.each(allDesks, (desk) => {
-        desk.off('click');
-    });
-}
-
 function switchToReserveView() {
     deactivateDeskTool();
     deactivateWallTool();
@@ -189,11 +189,54 @@ function switchToReserveView() {
     $('#switchToReserveView').prop('disabled', true);
     $('#switchToEditView').prop('disabled', false);
 
-    $.each(allDesks, (desk) => {
-       desk.on('click', (e) => {
-            // TODO: add reserve behaviour
+    $.each(allDesks, (index, desk) => {
+        desk.on('click', () => {
+            if(desk.reservation) {
+                deleteReservationFrom(desk);
+            } else {
+                addReservationTo(desk);
+            }
         });
     });
+}
+
+function addReservationTo(desk) {
+    var image = new Image();
+    image.src = 'people/angie.png';
+
+    var imageOriginalWidth = image.width
+    var imageTargetWidth = 80;
+
+    image.onload = () => {
+        desk.reservation = new Konva.Image({
+            fillPatternImage: image,
+            // radius: 100,
+            // stroke: 'black',
+            // strokeWidth: 2,
+            height: imageTargetWidth,
+            width: imageTargetWidth,
+            fillPatternScaleX: imageTargetWidth / imageOriginalWidth,
+            fillPatternScaleY: imageTargetWidth / imageOriginalWidth,
+            // fillPatternImage: image,
+            // fillPatternOffset: {
+            //     x: -(desk.x() + (desk.width() / 2)),
+            //     y: desk.y() + (desk.height() / 2)
+            // },
+            x: desk.x() + (desk.width() / 2) - imageTargetWidth/2,
+            y: desk.y() + (desk.height() / 2) - imageTargetWidth/2,
+        });
+
+        // also delete when clicking on circle
+        desk.reservation.on('click', () => deleteReservationFrom(desk));
+        deskLayer.add(desk.reservation);
+        deskLayer.draw();
+    };
+}
+
+function deleteReservationFrom(desk) {
+    desk.reservation.destroy();
+    delete desk.reservation;
+    deskLayer.draw();
 }
 
 $(document).ready(() => {
