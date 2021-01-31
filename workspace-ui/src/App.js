@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import NavBar from "./components/navbar/navbar.module";
+import Office from "./components/office/office.module";
+import Editor from "./components/editor/editor.module";
+import Reservation from "./components/reservation/reservation.module";
 
 function App() {
+
+  let navigation = {
+    active: "Editor"
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. YAYA TROLOLO
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+      <Office/>
+      {navigation.active === "Editor" && <Editor />}
+      {navigation.active === "Reservation" && <Reservation />}
     </div>
   );
 }

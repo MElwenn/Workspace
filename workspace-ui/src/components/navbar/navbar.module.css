@@ -1,0 +1,14 @@
+nav {
+    background-color: lightgray;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px;
+}
+
+#profilePic {
+    height: 50px;
+    width: 50px;
+}
