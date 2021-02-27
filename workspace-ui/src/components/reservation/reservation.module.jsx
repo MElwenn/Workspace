@@ -1,10 +1,14 @@
 import React from "react";
+import Office from "../office/office.module";
 
-import styles from "./reservation.module.css"
+import styles from "./reservation.module.css";
 
 const Reservation = () => {
   return (
-    <div>THE Reservation</div>
+    <div>
+      THE Reservation
+      <Office />
+    </div>
   );
 };
 
