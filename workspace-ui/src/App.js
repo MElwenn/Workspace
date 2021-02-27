@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./components/navbar/navbar.module";
 import Office from "./components/office/office.module";
-import Editor from "./components/editor/editor.module";
-import Reservation from "./components/reservation/reservation.module";
+import AppRouter from "./components/app-router/app-router.module"
 
 function App() {
 
@@ -13,10 +13,15 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
-      <Office/>
-      {navigation.active === "Editor" && <Editor />}
-      {navigation.active === "Reservation" && <Reservation />}
+
+      <Router>
+        <NavBar />
+        <Office />
+        <div>
+          <AppRouter />
+        </div>
+      </Router>
+
     </div>
   );
 }
