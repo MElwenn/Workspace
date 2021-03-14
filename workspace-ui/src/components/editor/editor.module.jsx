@@ -6,8 +6,12 @@ import styles from "./editor.module.css"
 class Editor extends Component {
 
   state = {
-    imageUrl: "",
     imageUrlInputValue: ""
+  }
+
+  constructor(props) {
+    super(props);
+    this.officeComponent = React.createRef();
   }
 
   handleInput = event => {
@@ -15,8 +19,7 @@ class Editor extends Component {
   };
 
   updateImage = () => {
-    // this.setState(Object.create(this.state, {imageUrl: this.state.imageUrlInputValue}))
-    this.setState({ imageUrl: this.state.imageUrlInputValue });
+    this.officeComponent.current.setLayoutImage(this.state.imageUrlInputValue)
   }
 
   render() {
@@ -29,7 +32,7 @@ class Editor extends Component {
           <br />
           <button onClick={this.updateImage}>OK</button>
         </div>
-        <Office layoutImage={this.state.imageUrl} />
+        <Office ref={this.officeComponent} />
       </div>
     );
   }
