@@ -6,7 +6,8 @@ import styles from "./editor.module.css"
 class Editor extends Component {
 
   state = {
-    imageUrlInputValue: ""
+    imageUrlInputValue: "",
+    importModalOpen: false
   }
 
   constructor(props) {
@@ -22,16 +23,28 @@ class Editor extends Component {
     this.officeComponent.current.setLayoutImage(this.state.imageUrlInputValue)
   }
 
+  openImportModal = () => {
+    this.setState({ importModalOpen: true })
+  }
+
+  closeImportModal = () => {
+    this.setState({ importModalOpen: false })
+  }
+
   render() {
     return (
       <div id={styles.editorContainer}>
+        <div id={styles.toolboxContainer}>
+          <button onClick={this.openImportModal}>Layout importieren</button>
+        </div>
 
-        <div id={styles.uploadForm}>
+        {this.state.importModalOpen && <div id={styles.uploadForm}>
           <h4>Please insert image url to import</h4>
           <input id="image-url-input" type="text" size="50" onChange={this.handleInput} />
           <br />
           <button onClick={this.updateImage}>OK</button>
-        </div>
+          <button onClick={this.closeImportModal}>Cancel</button>
+        </div>}
         <Office ref={this.officeComponent} />
       </div>
     );
