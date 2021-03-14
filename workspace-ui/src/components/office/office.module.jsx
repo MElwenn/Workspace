@@ -5,12 +5,11 @@ import styles from "./office.module.css"
 class Office extends Component {
 
   state = { 
-    layoutImage: "blub" 
+    layoutImage: "https://onestopepc.co.uk/wp-content/uploads/2016/08/Example-Floor-Plan-Sketch-1-1024x670.png" 
   }
 
   constructor(props) {
     super(props)
-    // TODO pass this value properly and trigger re-render of component
     
   }
 
@@ -20,15 +19,13 @@ class Office extends Component {
 
   importLayout = () => {
     return {
-      fontWeight: "bold",
-      color: "blue",
       backgroundImage: `url("${this.state.layoutImage}")`
     }
   }
 
   render() {
     return (
-      <div style={this.importLayout()}>THE OFFICE</div>
+      <div id={styles.officeContainer} style={this.importLayout()}></div>
     );
   }
 };

@@ -6,10 +6,10 @@ import Reservation from "../reservation/reservation.module";
 
 class AppRouter extends Component {
     render() {
-        return <div>
+        return <>
             <Route path="/editor" component={Editor} />
             <Route path="/reservation" component={Reservation} />
-        </div>
+        </>
     }
 }
 

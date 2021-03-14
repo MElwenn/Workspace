@@ -1,6 +1,15 @@
+#editorContainer {
+    height: 100%;
+    width: 100%;
+}
+
 #uploadForm {
     margin: 100px;
-    border: 1px solid grey;
+    border: 3px solid grey;
+    border-radius: 10px;
     width: 30%;
     padding: 10px;
+    position: absolute;
+
+    background-color: white;
 }

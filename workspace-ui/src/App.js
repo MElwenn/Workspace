@@ -10,9 +10,7 @@ function App() {
 
       <Router>
         <NavBar />
-        <div>
-          <AppRouter />
-        </div>
+        <AppRouter />
       </Router>
 
     </div>

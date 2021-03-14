@@ -24,7 +24,7 @@ class Editor extends Component {
 
   render() {
     return (
-      <div id="editor">
+      <div id={styles.editorContainer}>
 
         <div id={styles.uploadForm}>
           <h4>Please insert image url to import</h4>
