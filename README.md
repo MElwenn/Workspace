@@ -7,7 +7,6 @@ https://the2d3dfloorplancompany.com/wp-content/uploads/2017/11/2D-Floor-Plan-Ima
 
 
 # Next steps editor
-- Button für "Layout importieren" + schließen des Modal Dialogs
 - Tische platzieren können
 - Möglichkeit zum Selektieren einzelner bereits existierender Tische (muss kein eigener Knopf sein)
 - Zoom In + Out
