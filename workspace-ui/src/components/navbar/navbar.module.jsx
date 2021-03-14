@@ -2,7 +2,6 @@ import React from "react";
 
 import {NavLink} from "react-router-dom";
 
-import AppRouter from '../app-router/app-router.module'
 import styles from "./navbar.module.css"
 
 const NavBar = () => {
