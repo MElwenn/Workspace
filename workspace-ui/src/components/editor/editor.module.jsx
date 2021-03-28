@@ -31,8 +31,9 @@ class Editor extends Component {
     this.setState({ importModalOpen: false })
   }
 
-  spawnTable = () => {
-    // TODO konva einbinden und ein Tisch Element erstellen. Danach Tisch Element draggable machen.
+  spawnDesk = () => {
+    console.log("Adding desk / editor")
+    this.officeComponent.current.spawnDesk()
   }
 
   render() {
@@ -44,7 +45,7 @@ class Editor extends Component {
           Wir wollen den Tisch Button so haben, dass man den Tisch einfach in den Editor draggen und droppen kann.
           Entsprehend beim Löschen auf den Papierkorb draggen.
           */}
-          <button onClick={this.spawnTable}>Tisch</button>
+          <button onClick={this.spawnDesk}>Tisch</button>
         </div>
 
         {this.state.importModalOpen && <div id={styles.uploadForm}>
@@ -58,7 +59,6 @@ class Editor extends Component {
       </div>
     );
   }
-};
+}
 
 export default Editor;
-

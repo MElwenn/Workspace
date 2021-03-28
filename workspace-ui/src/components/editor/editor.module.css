@@ -10,6 +10,7 @@
     border: 3px solid blue;
     padding: 10px;
     background-color: white;
+    z-index: 1;
 }
 
 #uploadForm {
@@ -21,4 +22,5 @@
     position: absolute;
 
     background-color: white;
+    z-index: 1;
 }
