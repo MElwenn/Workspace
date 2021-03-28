@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Stage, Layer, Rect, Text } from 'react-konva';
 
 import styles from "./office.module.css"
+import BackendService from "../backend/backend.module";
 
 class Office extends Component {
 
@@ -10,8 +11,16 @@ class Office extends Component {
     desks: []
   }
 
+  backend = new BackendService()
+
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+    this.setState({
+      desks: this.backend.load()
+    })
   }
 
   setLayoutImage = (imageUrl) => {
@@ -26,8 +35,11 @@ class Office extends Component {
 
   spawnDesk = () => {
     console.log("Adding desk / office")
+    let desksWithAdded = this.state.desks.concat([this.newDesk()]);
+
+    this.backend.save(desksWithAdded)
     this.setState({
-      desks: [this.deskPopupPosition()].concat(this.state.desks)
+      desks: desksWithAdded
     })
   }
 
@@ -45,13 +57,14 @@ class Office extends Component {
     return window.innerWidth
   }
 
-  deskPopupPosition = () => {
+  newDesk = () => {
     return {
       x: this.officeWidth() - 150,
       y: 100
     }
   }
 
+  // TODO: set x&y on onDragEnd or such to state array
   render() {
     return (
         <div id={styles.officeContainer} style={this.importLayout()}>
