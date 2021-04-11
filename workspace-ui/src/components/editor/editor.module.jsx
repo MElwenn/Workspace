@@ -55,7 +55,7 @@ class Editor extends Component {
           <button onClick={this.updateImage}>OK</button>
           <button onClick={this.closeImportModal}>Cancel</button>
         </div>}
-        <Office ref={this.officeComponent} />
+        <Office ref={this.officeComponent} isEditingEnabled={true}/>
       </div>
     );
   }

@@ -7,7 +7,7 @@ const Reservation = () => {
   return (
     <div>
       THE Reservation
-      <Office />
+      <Office isEditingEnabled={false}/>
     </div>
   );
 };
