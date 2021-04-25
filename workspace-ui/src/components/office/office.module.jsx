@@ -9,13 +9,15 @@ class Office extends Component {
 
   state = {
     layoutImage: "https://onestopepc.co.uk/wp-content/uploads/2016/08/Example-Floor-Plan-Sketch-1-1024x670.png",
-    desks: {}
+    desks: {}, 
+    selectedDeskId: null
   }
 
   backend = new BackendService()
 
   constructor(props) {
     super(props)
+    this.stageRef = React.createRef();
   }
 
   componentDidMount() {
@@ -64,7 +66,8 @@ class Office extends Component {
     return {
       id: uuidv4(),
       x: this.officeWidth() - 150,
-      y: 100
+      y: 100, 
+      rotation: 0
     }
   }
 
@@ -80,10 +83,26 @@ class Office extends Component {
     this.backend.saveDesk(currentDesk)
   }
 
+  selectDesk = (deskId) => {
+    if (this.props.isEditingEnabled) {
+      this.setState({selectedDeskId: deskId})
+    }
+  }
+
+  rotateSelectedDesk = () => {
+    let selectedDesk = this.state.desks[this.state.selectedDeskId]
+    console.debug("Hast du Tisch gefunden? selectedDeskId", selectedDesk.id)
+
+    // TODO: apply changed rotation doesnt work - maybe rerender that Rect?
+    selectedDesk.rotation = selectedDesk.rotation + 90
+    // TODO save changed desk
+    // TODO on load: load proper rotation of all desks
+  }
+
   render() {
     return (
       <div id={styles.officeContainer} style={this.importLayout()}>
-        <Stage height={this.officeHeight()} width={this.officeWidth()}>
+        <Stage height={this.officeHeight()} width={this.officeWidth()} ref={this.stageRef}>
           <Layer>
             {
               Object.values(this.state.desks).map((desk, i) => (
@@ -95,10 +114,14 @@ class Office extends Component {
                   width={100}
                   height={50}
                   fill='grey'
-                  draggable={!!this.props.isEditingEnabled}
-                  stroke='black'
+                  draggable={this.props.isEditingEnabled}
+                  stroke={desk.id === this.state.selectedDeskId ? 'green' : 'black' }
+                  // stroke='black'
                   strokeWidth={4}
                   cornerRadius={4}
+                  id={desk.id}
+                  onClick={(e) => this.selectDesk(desk.id, e)}
+                  rotation={desk.rotation}
                 />
               ))
             }

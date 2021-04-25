@@ -7,6 +7,17 @@ https://the2d3dfloorplancompany.com/wp-content/uploads/2017/11/2D-Floor-Plan-Ima
 
 
 # Next steps editor
-- Möglichkeit zum Selektieren einzelner bereits existierender Tische (muss kein eigener Knopf sein)
 - Zoom In + Out
-- Persistieren des Layouts, so dass der Zustand auch bei Wechsel ins "Reserve" Modul sichtbar ist.
+- Büro scrollen
+- Tische reservieren
+- Tische drehen
+
+
+# Aufräumen
+- Office Modul: Darstellung des Büros und der Tische. Bietet Funktionen an, um auf die Elemente zuzugreifen und sie ggf. zu manipulieren.
+- Editor Modul: Liest aus dem Office Modul den Stand aus und registriert Edit Events an den Elementen (onClick = selectDesk, onDragEnd etc.)
+- Registration Modul: Liest aus dem Office Modul den Stand aus und registriert Edit Events an den Elementen (onClick = reserveDesk etc.)
+
+
+# Später mal
+- Tische Größe anpassen

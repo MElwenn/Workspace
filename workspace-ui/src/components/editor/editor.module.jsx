@@ -36,6 +36,11 @@ class Editor extends Component {
     this.officeComponent.current.spawnDesk()
   }
 
+  rotateSelectedDesk = () => {
+    console.debug("editor component: rotateSelectedDesk")
+    this.officeComponent.current.rotateSelectedDesk()
+  }
+
   render() {
     return (
       <div id={styles.editorContainer}>
@@ -46,6 +51,8 @@ class Editor extends Component {
           Entsprehend beim Löschen auf den Papierkorb draggen.
           */}
           <button onClick={this.spawnDesk}>Tisch</button>
+          {/* TODO: Buttons designen, Icon verwenden */}
+          <button onClick={this.rotateSelectedDesk}>Drehen</button>
         </div>
 
         {this.state.importModalOpen && <div id={styles.uploadForm}>
