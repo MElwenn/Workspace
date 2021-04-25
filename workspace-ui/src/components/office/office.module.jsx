@@ -76,10 +76,7 @@ class Office extends Component {
     currentDesk.x = e.target.attrs.x
     currentDesk.y = e.target.attrs.y
 
-    let currentDesks = this.state.desks
-    currentDesks[deskId] = currentDesk
-    this.setState({ desks: currentDesks })
-
+    this.setState({ desks: this.state.desks })
     this.backend.saveDesk(currentDesk)
   }
 
@@ -90,13 +87,12 @@ class Office extends Component {
   }
 
   rotateSelectedDesk = () => {
-    let selectedDesk = this.state.desks[this.state.selectedDeskId]
-    console.debug("Hast du Tisch gefunden? selectedDeskId", selectedDesk.id)
-
-    // TODO: apply changed rotation doesnt work - maybe rerender that Rect?
-    selectedDesk.rotation = selectedDesk.rotation + 90
-    // TODO save changed desk
-    // TODO on load: load proper rotation of all desks
+    if (this.state.selectedDeskId) {
+      let selectedDesk = this.state.desks[this.state.selectedDeskId]
+      selectedDesk.rotation = selectedDesk.rotation + 90
+      this.setState({ desks: this.state.desks })
+      this.backend.saveDesk(selectedDesk)
+    }
   }
 
   render() {
@@ -116,7 +112,6 @@ class Office extends Component {
                   fill='grey'
                   draggable={this.props.isEditingEnabled}
                   stroke={desk.id === this.state.selectedDeskId ? 'green' : 'black' }
-                  // stroke='black'
                   strokeWidth={4}
                   cornerRadius={4}
                   id={desk.id}
